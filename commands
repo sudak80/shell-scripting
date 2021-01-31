@@ -1,0 +1,11 @@
+grep -i "error" -l -R *							          - Search particular word on all files and sub directory and print only file name.
+cat file1.txt | grep -i "ubuntu" |grep -n 5		- Search particular word in the file and print only 5th line of the file.
+sed -n '6,$p' file1.txt							          - Print output from 6th line to end of the file.
+sed -n '$p' file1.txt							            - Print last line of the file.
+sed -n '1p' file1.txt							            - Print first line of the file.
+sed -n '4,5p' file1.tx							          - Print only 4 & 5th line out put of the file.
+sed -i '5d' file1.txt							            - Delete 5th line from the file
+cat file1.txt |grep -v ubuntu					        -  This will exclude lines which are having ubuntu line in the file.
+sed -i 's/ubuntu/centos/g' file1.txt			    - This will find ubuntu and replace it with centos on complete file
+												                      If we don't give /g it will replace on 1st occurence and stop it.
+sed 's/centos/ubuntu/g' file1.txt				    - This will replace centos to ubuntu on file and dispaly only. This will not change on actual file.
