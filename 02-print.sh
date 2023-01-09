@@ -2,6 +2,9 @@
 echo "** Welcome to Upskill journey **"
 
 # To use color code we have to use echo -e "\e[COLmMESSAGE\[0m"
+# In above line to get color we need to use -e, COL means we need to give color number
+# m means message start and end
+
 # Color COde Syntax : echo -e "\e[COLmMESSAGE\e[0m"
 # Red       - 31 - echo -e "\e[31mMESSAGE\e[0m"
 # Green     - 32 - echo -e "\e[32mMESSAGE\e[0m"
@@ -12,6 +15,10 @@ echo "** Welcome to Upskill journey **"
 
 echo -e "\e[31mMESSAGE\e[0m"
 echo -e "\e[32mMESSAGE\e[0m"
+echo -e "\e[33mMESSAGE\e[0m"
+echo -e "\e[34mMESSAGE\e[0m"
+echo -e "\e[35mMESSAGE\e[0m"
+echo -e "\e[36mMESSAGE\e[0m"
 
 
 # https://misc.flogisoft.com/bash/tip_colors_and_formatting
