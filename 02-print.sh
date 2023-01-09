@@ -1,9 +1,9 @@
 
 echo "** Welcome to Upskill journey **"
 
-# To use color code we have to use echo -e "\e[COLmMESSAGE\[0m"
+# To use color code we have to use (Syntax) echo -e "\e[COLmMESSAGE\e[0m"
 # In above line to get color we need to use -e, COL means we need to give color number
-# m means message start and end
+# m means starts the message, 0m means stop the color, else every thing will be in color.
 
 # Color COde Syntax : echo -e "\e[COLmMESSAGE\e[0m"
 # Red       - 31 - echo -e "\e[31mMESSAGE\e[0m"
