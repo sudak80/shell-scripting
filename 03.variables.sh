@@ -3,5 +3,5 @@
 name=Ruthika
 class=DevOps
 
-echo ${name}
-echo ${class}
+echo student name ${name}
+echo subject name ${class}
