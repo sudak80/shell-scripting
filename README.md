@@ -11,4 +11,4 @@ Shell Topics:
 5. Loops (L)
 6. Exit Status
 7. Inputs
-8. 
+8. Quotes
