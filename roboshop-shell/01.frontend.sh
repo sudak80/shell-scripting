@@ -1,5 +1,5 @@
 #Hear we are going automate frontend server configuration...
-current_user=$(pwd)
+config_file_location=$(pwd)
 
 yum install nginx -y
 
@@ -13,6 +13,6 @@ curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.z
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 
-cp ${current_user}/files/roboshop.conf /etc/nginx/default.d/roboshop.conf
+cp ${config_file_location}/files/roboshop.conf /etc/nginx/default.d/roboshop.conf
 
 systemctl restart nginx
