@@ -1,4 +1,4 @@
 # mongodb configuration details
-repo-file-location=$(pwd)
+config_file_location=$(pwd)
 
-cp ${repo-file-location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo
+cp ${config_file_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo
