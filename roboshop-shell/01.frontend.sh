@@ -9,7 +9,7 @@ systemctl start nginx
 rm -rf /usr/share/nginx/html/*
 
 #curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
-curl -o /usr/share/nginx/html https://github.com/skfreshgreens/frontend.git
+curl -o /usr/share/nginx/html/ https://github.com/skfreshgreens/frontend.git
 
 cd /usr/share/nginx/html
 #unzip /tmp/frontend.zip
