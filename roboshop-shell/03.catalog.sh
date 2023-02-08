@@ -14,7 +14,7 @@ unzip /tmp/catalogue.zip
 npm install
 
 cp ${config_file_location}/files/catalogue.service /etc/systemd/system/catalogue.service
-cp ${config_file_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo
+cp ${config_file_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo
 
 yum install mongodb-org-shell -y
 mongo --host localhost </app/schema/catalogue.js
