@@ -6,9 +6,8 @@ cp ${config_file_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo
 
 yum install mongodb-org -y
 
-systemctl enable mongod
-systemctl start mongod
-
 sed -i 's/10.0.0.0/0.0.0.0/g' /etc/mongod.conf
 
+systemctl enable mongod
+systemctl start mongod
 systemctl restart mongod
