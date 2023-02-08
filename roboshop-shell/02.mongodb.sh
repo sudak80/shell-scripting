@@ -1,6 +1,6 @@
 # mongodb configuration details
 config_file_location=$(pwd)
-set -e
+set -e    # This will stop wherver issue occurs and will not proceed further.
 
 cp ${config_file_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo
 

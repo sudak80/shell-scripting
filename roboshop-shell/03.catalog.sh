@@ -1,6 +1,6 @@
 # Script for Deploying Catalog service
 config_file_location=$(pwd)
-set -e
+#set -e
 
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 yum install nodejs -y
