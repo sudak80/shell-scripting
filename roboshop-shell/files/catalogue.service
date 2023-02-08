@@ -10,9 +10,3 @@ SyslogIdentifier=catalogue
 
 [Install]
 WantedBy=multi-user.target
-
-systemctl daemon-reload
-
-systemctl enable catalogue
-systemctl start catalogue
-
