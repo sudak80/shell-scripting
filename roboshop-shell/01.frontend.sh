@@ -1,26 +1,27 @@
 #Hear we are going automate frontend server configuration...
 config_file_location=$(pwd)
+LOG=/tmp/roboshop.log
 
 echo -e "\e[35m Install Nginx\e[0m"
-yum install nginx -y
+yum install nginx -y &>>${LOG}
 
-rm -rf /usr/share/nginx/html/*
+rm -rf /usr/share/nginx/html/* &>>${LOG}
 
 echo -e "\e[35m Download Frontend content(Artifacts)\e[0m"
-curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
+curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip &>>${LOG}
 
-cd /usr/share/nginx/html
+cd /usr/share/nginx/html &>>${LOG}
 echo -e "\e[35m Extract Frontend\e[0m"
-unzip /tmp/frontend.zip
+unzip /tmp/frontend.zip &>>${LOG}
 
 echo -e "\e[35m Copy config File\e[0m"
-cp ${config_file_location}/files/roboshop.conf /etc/nginx/default.d/roboshop.conf
+cp ${config_file_location}/files/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>${LOG}
 
 echo -e "\e[35m Enable Nginx\e[0m"
-systemctl enable nginx
+systemctl enable nginx &>>${LOG}
 
 echo -e "\e[35m Start Nginx\e[0m"
 systemctl start nginx
 
 echo -e "\e[35m Restart Nginx\e[0m"
-systemctl restart nginx
+systemctl restart nginx &>>${LOG}
