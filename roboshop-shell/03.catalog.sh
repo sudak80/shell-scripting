@@ -10,7 +10,7 @@ yum install nodejs -y  &>>${LOG}
 status_check
 
 echo -e "\e[35m Add roboshop user \e[0m"
-useradd roboshop
+#useradd roboshop
 status_check
 
 mkdir -p /app

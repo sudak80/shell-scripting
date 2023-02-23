@@ -1,13 +1,16 @@
 # source module will fetch the file content to this module/file.
 source ./00.common.sh
 
-echo -e "\e[35m Install Nginx\e[0m"
+#echo -e "\e[35m Install Nginx\e[0m"
+
+print_head "Install nginx"
 yum install nginx -y &>>${LOG}
 # echo $?   - To display command run status whether it is failed or success
 # echo is to display else we can use only $? also.
 status_check
 
-echo -e "\e[35m Remove old Nginx content files\e[0m"
+#echo -e "\e[35m Remove old Nginx content files\e[0m"
+print_head "Remove old Nginx content files"
 rm -rf /usr/share/nginx/html/* &>>${LOG}
 status_check
 
