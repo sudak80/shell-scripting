@@ -13,6 +13,7 @@ else
   echo "FAILURE"
 fi
 
+echo -e "\e[35m Remove old Nginx content files\e[0m"
 rm -rf /usr/share/nginx/html/* &>>${LOG}
 if [ $? -eq 0 ]
 then
