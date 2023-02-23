@@ -33,3 +33,9 @@ echo $?
 echo -e "\e[35m Restart Nginx\e[0m"
 systemctl restart nginx &>>${LOG}
 echo $?
+
+if [ 'echo $?' == 0 ]
+ echo "Nginx service started"
+else
+ echo "nginx service NOT started"
+fi
