@@ -1,22 +1,22 @@
 # source module will fetch the file content to this module/file.
 source ./00.common.sh
 
-echo -e "\e[35m Creating mongodb repo\e[0m"
+print_head "Creating mongodb repo"
 cp ${config_file_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${LOG}
 status_check
 
-echo -e "\e[35m Install mongodb\e[0m"
+print_head "Install mongodb"
 yum install mongodb-org -y &>>${LOG}
 status_check
 
-echo -e "\e[35m Allowing mongodb to accept traffic from anywhere (incoming)\e[0m"
+print_head "Allowing mongodb to accept traffic from anywhere (incoming)"
 sed -i 's/10.0.0.0/0.0.0.0/g' /etc/mongod.conf &>>${LOG}
 status_check
 
-echo -e "\e[35m Enable mongodb\e[0m"
+print_head "Enable mongodb"
 systemctl enable mongod &>>${LOG}
 status_check
 
-echo -e "\e[35m Starting mongodb service\e[0m"
+print_head "Starting mongodb service"
 systemctl start mongod &>>${LOG}
 status_check

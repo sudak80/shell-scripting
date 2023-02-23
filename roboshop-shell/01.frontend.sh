@@ -14,27 +14,28 @@ print_head "Remove old Nginx content files"
 rm -rf /usr/share/nginx/html/* &>>${LOG}
 status_check
 
-echo -e "\e[35m Download Frontend content(Artifacts)\e[0m"
+print_head "Download Frontend content(Artifacts)"
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip &>>${LOG}
 status_check
 
 cd /usr/share/nginx/html &>>${LOG}
-echo -e "\e[35m Extract Frontend\e[0m"
+
+print_head "Extract Frontend"
 unzip /tmp/frontend.zip &>>${LOG}
 status_check
 
-echo -e "\e[35m Copy config File\e[0m"
+print_head "Copy config File"
 cp ${config_file_location}/files/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>${LOG}
 status_check
 
-echo -e "\e[35m Enable Nginx\e[0m"
+print_head "Enable Nginx"
 systemctl enable nginx &>>${LOG}
 status_check
 
-echo -e "\e[35m Start Nginx\e[0m"
+print_head "Start Nginx"
 systemctl start nginx
 status_check
 
-echo -e "\e[35m Restart Nginx\e[0m"
+print_head "Restart Nginx"
 systemctl restart nginx &>>${LOG}
 status_check

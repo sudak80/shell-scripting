@@ -1,62 +1,62 @@
 # source module will fetch the file content to this module/file.
 source ./00.common.sh
 
-echo -e "\e[35m Add nodejs repo \e[0m"
+print_head "Add nodejs repo"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash  &>>${LOG}
 status_check
 
-echo -e "\e[35m Install nodejs \e[0m"
+print_head "Install nodejs"
 yum install nodejs -y  &>>${LOG}
 status_check
 
-echo -e "\e[35m Add roboshop user \e[0m"
+print_head "Add roboshop user"
 #useradd roboshop
 status_check
 
 mkdir -p /app
 
-echo -e "\e[35m Download app content \e[0m"
+print_head "Download app content"
 curl -L -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip   &>>${LOG}
 status_check
 
-echo -e "\e[35m App cleanup \e[0m"
+print_head "App cleanup"
 rm -rf /app/*
 status_check
 
 cd /app
-echo -e "\e[35m Extracting app content \e[0m"
+print_head "Extracting app content"
 unzip /tmp/catalogue.zip &>>${LOG}
 status_check
 
 cd /app
-echo -e "\e[35m Installing NodeJs dependencies \e[0m"
+print_head "Installing NodeJs dependencies"
 npm install  &>>${LOG}
 status_check
 
-echo -e "\e[35m Configuring catalogue service file \e[0m"
+print_head "Configuring catalogue service file"
 cp ${config_file_location}/files/catalogue.service /etc/systemd/system/catalogue.service &>>${LOG}
 status_check
 
-echo -e "\e[35m Restart catalogue service \e[0m"
+print_head "Restart catalogue service"
 systemctl daemon-reload &>>${LOG}
 status_check
 
-echo -e "\e[35m Enable catalogue service \e[0m"
+print_head "Enable catalogue service"
 systemctl enable catalogue &>>${LOG}
 status_check
 
-echo -e "\e[35m Starting catalogue service \e[0m"
+print_head "Starting catalogue service"
 systemctl start catalogue &>>${LOG}
 status_check
 
-echo -e "\e[35m Download app content \e[0m"
+print_head "Download app content"
 #cp ${config_file_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${LOG}
 status_check
 
-echo -e "\e[35m Install mongodb client \e[0m"
+print_head "Install mongodb client"
 yum install mongodb-org-shell -y &>>${LOG}
 status_check
 
-echo -e "\e[35m Loading catalogue schema \e[0m"
+print_head "Loading catalogue schema"
 mongo --host localhost </app/schema/catalogue.js &>>${LOG}
 status_check
