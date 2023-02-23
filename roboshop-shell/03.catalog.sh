@@ -10,6 +10,7 @@ then
   echo "SUCCESS"
 else
   echo "FAILURE"
+exit
 fi
 
 echo -e "\e[35m Install nodejs \e[0m"
@@ -19,15 +20,18 @@ then
   echo "SUCCESS"
 else
   echo "FAILURE"
+exit
 fi
 
 echo -e "\e[35m Add roboshop user \e[0m"
-#useradd roboshop
+useradd roboshop
 if [ $? -eq 0 ]
 then
   echo "SUCCESS"
 else
   echo "FAILURE"
+  echo "Refer log file at /tmp/roboshop.log"
+exit
 fi
 
 mkdir -p /app
@@ -39,6 +43,7 @@ then
   echo "SUCCESS"
 else
   echo "FAILURE"
+exit
 fi
 
 echo -e "\e[35m App cleanup \e[0m"
@@ -48,6 +53,7 @@ then
   echo "SUCCESS"
 else
   echo "FAILURE"
+exit
 fi
 
 cd /app
@@ -58,6 +64,7 @@ then
   echo "SUCCESS"
 else
   echo "FAILURE"
+exit
 fi
 
 cd /app
@@ -68,6 +75,7 @@ then
   echo "SUCCESS"
 else
   echo "FAILURE"
+exit
 fi
 
 echo -e "\e[35m Configuring catalogue service file \e[0m"
@@ -77,6 +85,7 @@ then
   echo "SUCCESS"
 else
   echo "FAILURE"
+exit
 fi
 
 echo -e "\e[35m Restart catalogue service \e[0m"
@@ -86,6 +95,7 @@ then
   echo "SUCCESS"
 else
   echo "FAILURE"
+exit
 fi
 
 echo -e "\e[35m Enable catalogue service \e[0m"
@@ -95,6 +105,7 @@ then
   echo "SUCCESS"
 else
   echo "FAILURE"
+exit
 fi
 
 echo -e "\e[35m Starting catalogue service \e[0m"
@@ -104,6 +115,7 @@ then
   echo "SUCCESS"
 else
   echo "FAILURE"
+exit
 fi
 
 echo -e "\e[35m Download app content \e[0m"
@@ -113,6 +125,7 @@ then
   echo "SUCCESS"
 else
   echo "FAILURE"
+exit
 fi
 
 echo -e "\e[35m Install mongodb client \e[0m"
@@ -122,6 +135,7 @@ then
   echo "SUCCESS"
 else
   echo "FAILURE"
+exit
 fi
 
 echo -e "\e[35m Loading catalogue schema \e[0m"
@@ -131,4 +145,5 @@ then
   echo "SUCCESS"
 else
   echo "FAILURE"
+exit
 fi
