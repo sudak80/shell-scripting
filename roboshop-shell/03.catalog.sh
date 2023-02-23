@@ -52,7 +52,7 @@ fi
 
 cd /app
 echo -e "\e[35m Extracting app content \e[0m"
-unzip /tmp/catalogue.zip   &>>${LOG}
+unzip /tmp/catalogue.zip &>>${LOG}
 if [ $? -eq 0 ]
 then
   echo "SUCCESS"
@@ -62,7 +62,7 @@ fi
 
 cd /app
 echo -e "\e[35m Installing NodeJs dependencies \e[0m"
-npm install
+npm install  &>>${LOG}
 if [ $? -eq 0 ]
 then
   echo "SUCCESS"
@@ -71,7 +71,7 @@ else
 fi
 
 echo -e "\e[35m Configuring catalogue service file \e[0m"
-cp ${config_file_location}/files/catalogue.service /etc/systemd/system/catalogue.service   &>>${LOG}
+cp ${config_file_location}/files/catalogue.service /etc/systemd/system/catalogue.service &>>${LOG}
 if [ $? -eq 0 ]
 then
   echo "SUCCESS"
@@ -80,7 +80,7 @@ else
 fi
 
 echo -e "\e[35m Restart catalogue service \e[0m"
-systemctl daemon-reload   &>>${LOG}
+systemctl daemon-reload &>>${LOG}
 if [ $? -eq 0 ]
 then
   echo "SUCCESS"
@@ -89,7 +89,7 @@ else
 fi
 
 echo -e "\e[35m Enable catalogue service \e[0m"
-systemctl enable catalogue   &>>${LOG}
+systemctl enable catalogue &>>${LOG}
 if [ $? -eq 0 ]
 then
   echo "SUCCESS"
@@ -98,7 +98,7 @@ else
 fi
 
 echo -e "\e[35m Starting catalogue service \e[0m"
-systemctl start catalogue   &>>${LOG}
+systemctl start catalogue &>>${LOG}
 if [ $? -eq 0 ]
 then
   echo "SUCCESS"
@@ -107,7 +107,7 @@ else
 fi
 
 echo -e "\e[35m Download app content \e[0m"
-#cp ${config_file_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo
+#cp ${config_file_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${LOG}
 if [ $? -eq 0 ]
 then
   echo "SUCCESS"
@@ -116,7 +116,7 @@ else
 fi
 
 echo -e "\e[35m Install mongodb client \e[0m"
-yum install mongodb-org-shell -y   &>>${LOG}
+yum install mongodb-org-shell -y &>>${LOG}
 if [ $? -eq 0 ]
 then
   echo "SUCCESS"
