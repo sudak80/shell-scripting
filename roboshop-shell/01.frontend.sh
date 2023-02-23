@@ -1,5 +1,5 @@
 # source module will fetch the file content to this module/file.
-source 00.common.sh
+source common.sh
 
 echo -e "\e[35m Install Nginx\e[0m"
 yum install nginx -y &>>${LOG}
