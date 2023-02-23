@@ -24,7 +24,7 @@ exit
 fi
 
 echo -e "\e[35m Add roboshop user \e[0m"
-useradd roboshop
+#useradd roboshop
 if [ $? -eq 0 ]
 then
   echo "SUCCESS"
