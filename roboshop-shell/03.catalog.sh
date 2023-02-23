@@ -11,7 +11,7 @@ status_check
 
 print_head "Add roboshop user"
 id roboshop &>>${LOG}
-if [ $? -ne 0 ]; then
+if [ $? -ne 1 ]; then
   useradd roboshop &>>${LOG}
 fi
 status_check
