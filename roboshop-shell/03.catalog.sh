@@ -1,5 +1,5 @@
 # source module will fetch the file content to this module/file.
-source ./common.sh
+source ./00.common.sh
 
 echo -e "\e[35m Add nodejs repo \e[0m"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash  &>>${LOG}

@@ -1,5 +1,5 @@
 # source module will fetch the file content to this module/file.
-source common.sh
+source ./00.common.sh
 
 echo -e "\e[35m Creating mongodb repo\e[0m"
 cp ${config_file_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${LOG}
